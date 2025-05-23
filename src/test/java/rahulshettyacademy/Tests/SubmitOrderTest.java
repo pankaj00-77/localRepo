@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SubmitOrderTest extends BaseTest {
 
-    public String productName = "ZARA COAT 3";
+     String productName = "ZARA COAT 3";
     @Test(dataProvider = "getData", groups = {"Purchase"})
     public void SubmitOrder(HashMap<String,String> input) throws IOException, InterruptedException {
         // TODO Auto-generated method stub
@@ -24,13 +24,11 @@ public class SubmitOrderTest extends BaseTest {
 
         ProductCatalogue productCatalogue = landingPage.loginApplication(input.get("email"),input.get("password"));
         //        landingPage.loginApplication("rajpal1996kumar@gmail.com","POPpopcon22");
-
-
         List<WebElement> products= productCatalogue.getProductList();
-        productCatalogue.addProductToCart(productName);
+        productCatalogue.addProductToCart(input.get("productName"));
         CartPage cartPage = productCatalogue.gotoCartPage();
 
-        Boolean match = cartPage.verifyProductDisplay(productName);
+        Boolean match = cartPage.verifyProductDisplay(input.get("productName"));
         Assert.assertTrue(match);
         CheckoutPage checkoutPage = cartPage.goToCheckout();
         checkoutPage.selectCountry("india");

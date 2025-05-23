@@ -21,7 +21,8 @@ class ErrorValidation extends BaseTest {
 
          landingPage.loginApplication("rajpal1996kumar@gmail.com","POPpocon22");
         //        landingPage.loginApplication("rajpal1996kumar@gmail.com","POPpopcon22");
-        Assert.assertFalse("Incorrect email or password".contains(landingPage.getErrorMessage()));
+//        Assert.assertEquals("Incorrect email or password".contains(landingPage.getErrorMessage()));
+        Assert.assertEquals("Incorrect email or password.", landingPage.getErrorMessage());
 
 
 
@@ -43,7 +44,6 @@ class ErrorValidation extends BaseTest {
         List<WebElement> products= productCatalogue.getProductList();
         productCatalogue.addProductToCart(productName);
         CartPage cartPage = productCatalogue.gotoCartPage();
-
         Boolean match = cartPage.verifyProductDisplay("ZARA COAT 33");
         Assert.assertFalse(match);
 
