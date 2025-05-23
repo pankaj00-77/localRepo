@@ -11,6 +11,7 @@ public class LandingPage extends AbstractComponent {
 
 
 
+
     public LandingPage(WebDriver driver){
         super(driver);
         this.driver=driver;
@@ -37,7 +38,8 @@ public class LandingPage extends AbstractComponent {
         emailField.sendKeys(userEmail);
         passwordField.sendKeys(password);
         submitButton.click();
-        ProductCatalogue productCatalogue = new ProductCatalogue(driver); //ye humne es liye likha hai kyoki login page ke bad productCatalogue page hi khulna hai to es loginApplication method ke through hi open kr lena jada acha hai ese test.java folder main object baar baar likhna nhi padega
+        ProductCatalogue productCatalogue; //ye humne es liye likha hai kyoki login page ke bad productCatalogue page hi khulna hai to es loginApplication method ke through hi open kr lena jada acha hai ese test.java folder main object baar baar likhna nhi padega
+        productCatalogue = new ProductCatalogue(driver);
         return productCatalogue;
     }
     public String getErrorMessage(){

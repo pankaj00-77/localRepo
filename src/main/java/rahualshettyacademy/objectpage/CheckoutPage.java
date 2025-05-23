@@ -26,7 +26,7 @@ public class CheckoutPage extends AbstractComponent {
     public void selectCountry(String countryName){
         Actions a = new Actions(driver);
         a.sendKeys(country, countryName).build().perform();
-
+//        waitForElementToAppear(By.cssSelector(".ta-results"));
 
 
         selectCountry.click();

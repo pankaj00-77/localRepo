@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite">
+    <groups>
+        <run>
+            <include name="Purchase"/>
+        </run>
+    </groups>
+    <test thread-count="1" name="Submit order test">
+        <classes>
+
+            <class name="rahulshettyacademy.TestComponents.BaseTest"/>
+
+            <class name="rahulshettyacademy.Tests.SubmitOrderTest"/>
+        </classes>
+    </test>
+    <test thread-count="1" name="Error Validation Test">
+<classes>
+    <class name="rahulshettyacademy.Tests.ErrorValidation"/>
+</classes>
+    </test>
+</suite>

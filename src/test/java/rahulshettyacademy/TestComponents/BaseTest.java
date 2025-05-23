@@ -16,7 +16,9 @@ import java.util.Properties;
 
 public class BaseTest {
     public static WebDriver driver;
-    public LandingPage landingPage;
+//    private LandingPage landingPage;
+
+        public LandingPage landingPage;
     public static void initializeDriver() throws IOException {
 
         //properties class
@@ -42,7 +44,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
     }
-@BeforeMethod
+@BeforeMethod(alwaysRun = true)
     public LandingPage launchApplication() throws IOException {
          initializeDriver();
          landingPage = new LandingPage(driver);
@@ -51,7 +53,7 @@ public class BaseTest {
 
 
     }
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(){
         driver.close();
     }

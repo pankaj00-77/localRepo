@@ -8,11 +8,15 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import rahualshettyacademy.objectpage.CartPage;
+import rahualshettyacademy.objectpage.OrderPage;
 
 import java.time.Duration;
 
 public class AbstractComponent {
     WebDriver driver;
+    public rahualshettyacademy.objectpage.OrderPage OrderPage;
+    public rahualshettyacademy.objectpage.CartPage CartPage;
+
     public AbstractComponent(WebDriver driver) {
 
             this.driver=driver;
@@ -21,15 +25,18 @@ public class AbstractComponent {
     }
     @FindBy(css = "[routerLink*='cart']")
     WebElement cartHeader;
+    @FindBy(css = "[routerlink*='myorders']")
+    WebElement orderHeader;
+
     public void waitForElementAppear(By findby){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(findby));
     }
 
-        public void waitForElementToDisappear(WebElement ele) {
-//        Thread.sleep(4000);
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-            wait.until(ExpectedConditions.invisibilityOf(ele));
+        public void waitForElementToDisappear(WebElement ele) throws InterruptedException {
+        Thread.sleep(1000);
+//            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//            wait.until(ExpectedConditions.invisibilityOf(ele));
         }
     public void waitForWebElementAppear(WebElement findby){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -38,8 +45,14 @@ public class AbstractComponent {
 
     public CartPage gotoCartPage(){
         cartHeader.click();
+        CartPage cartPage = new CartPage(driver);
+        return cartPage;
+    }
+    public OrderPage goToOrderPage(){
+        orderHeader.click();
+        OrderPage orderPage = new OrderPage(driver);
 
-        return new CartPage(driver);
+        return orderPage;
     }
 
 }

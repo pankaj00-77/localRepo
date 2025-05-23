@@ -14,6 +14,7 @@ public class ProductCatalogue extends AbstractComponent {
 
 
 
+
     public ProductCatalogue(WebDriver driver){
         super(driver);
         this.driver=driver;
@@ -38,11 +39,11 @@ public class ProductCatalogue extends AbstractComponent {
     }
 
     public WebElement getProductByName(String productName){
-        WebElement prod =	products.stream().filter(product->
+        WebElement prod =	getProductList().stream().filter(product->
                 product.findElement(By.cssSelector("b")).getText().equals(productName)).findFirst().orElse(null);
         return prod;
     }
-    public void addProductToCard(String productName){
+    public void addProductToCart  (String productName) throws InterruptedException {
         WebElement prod= getProductByName(productName);
         prod.findElement(addproduct).click();
         waitForElementAppear(tostMessage);
@@ -53,7 +54,6 @@ public class ProductCatalogue extends AbstractComponent {
     }
 
 
-
-
-
+    public void addProductToCard(String productName) {
+    }
 }
