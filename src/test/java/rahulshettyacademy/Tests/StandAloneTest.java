@@ -1,4 +1,4 @@
-package pankajpak.Tests;
+package rahulshettyacademy.Tests;
 
 import java.time.Duration;
 import java.util.List;
@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import pankajpack.objectpage.LandingPage;
+import rahualshettyacademy.objectpage.LandingPage;
 
 public class StandAloneTest {
 

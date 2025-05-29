@@ -1,4 +1,4 @@
-package pankajpak.data;
+package rahulshettyacademy.data;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,11 +1,11 @@
-package pankajpak.Tests;
+package rahulshettyacademy.Tests;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pankajpack.objectpage.*;
-import pankajpak.TestComponents.BaseTest;
+import rahualshettyacademy.objectpage.*;
+import rahulshettyacademy.TestComponents.BaseTest;
 
 import java.io.IOException;
 import java.util.HashMap;

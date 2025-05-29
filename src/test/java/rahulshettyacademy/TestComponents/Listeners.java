@@ -1,11 +1,11 @@
-package pankajpak.TestComponents;
+package rahulshettyacademy.TestComponents;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebDriver;
 import org.testng.*;
-import pankajpak.resources.ExtentRepoterNG;
+import rahulshettyacademy.resources.ExtentRepoterNG;
 
 import java.io.IOException;
 

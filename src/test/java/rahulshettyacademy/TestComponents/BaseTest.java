@@ -1,4 +1,4 @@
-package pankajpak.TestComponents;
+package rahulshettyacademy.TestComponents;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pankajpack.objectpage.LandingPage;
+import rahualshettyacademy.objectpage.LandingPage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,7 +30,7 @@ public class BaseTest {
 
     public LandingPage landingPage;
 
-    public static WebDriver initializeDriver() throws IOException {
+    public static void initializeDriver() throws IOException {
 
         //properties class
         Properties prop = new Properties();
@@ -53,7 +53,6 @@ public class BaseTest {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-        return null;
     }
 
     public String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
