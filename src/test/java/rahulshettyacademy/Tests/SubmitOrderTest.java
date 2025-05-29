@@ -23,6 +23,9 @@ public class SubmitOrderTest extends BaseTest {
 
 
         ProductCatalogue productCatalogue = landingPage.loginApplication(input.get("email"),input.get("password"));
+        System.out.println("Logging in with email: " + input.get("email"));
+
+
         //        landingPage.loginApplication("rajpal1996kumar@gmail.com","POPpopcon22");
         List<WebElement> products= productCatalogue.getProductList();
         productCatalogue.addProductToCart(input.get("productName"));
@@ -42,10 +45,13 @@ public class SubmitOrderTest extends BaseTest {
     }
 
     @Test(dependsOnMethods = {"SubmitOrder"})
-    public void orderHistoryTest(){
-        ProductCatalogue productCatalogue = landingPage.loginApplication("rajpal1996kumar@gmail.com","POPpopcon22");
+    public void orderHistoryTest(HashMap<String,String> input){
+        ProductCatalogue productCatalogue = landingPage.loginApplication(input.get("email"),input.get("password"));
+        System.out.println("Logging in with email: " + input.get("email"));
+
+
         OrderPage orderPage= productCatalogue.goToOrderPage();
-        Assert.assertTrue(orderPage.verifyOrderDisplay(productName));
+        Assert.assertTrue(orderPage.verifyOrderDisplay(input.get("productName")));
 
     }
 

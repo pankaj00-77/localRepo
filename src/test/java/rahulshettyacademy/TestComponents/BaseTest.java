@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -26,21 +28,21 @@ public class BaseTest {
     public static WebDriver driver;
 //    private LandingPage landingPage;
 
-        public LandingPage landingPage;
-    public static void initializeDriver() throws IOException {
+    public LandingPage landingPage;
+
+    public static WebDriver initializeDriver() throws IOException {
 
         //properties class
         Properties prop = new Properties();
         FileInputStream file = new FileInputStream("C:\\Users\\Pankaj\\eclipse-workspace\\SeleniumFramewor\\src\\main\\java\\rahulshettyacademy\\resources\\GlobalData.properties");
         prop.load(file);
         String browserName = prop.getProperty("browser");
-        if(browserName.equalsIgnoreCase("chrome")){
+        if (browserName.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
-             driver = new ChromeDriver();
-        }
-        else if (browserName.equalsIgnoreCase("firefox")) {
+            driver = new ChromeDriver();
+        } else if (browserName.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
-             driver = new FirefoxDriver();
+            driver = new FirefoxDriver();
 
         }
 //        else if (browserName.equalsIgnoreCase("edge")) {
@@ -51,27 +53,46 @@ public class BaseTest {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
+        return null;
     }
-@BeforeMethod(alwaysRun = true)
+
+    public String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
+        FileUtils.copyFile(source, file);
+
+
+        return System.getProperty("user.dir" + "//reports//" + testCaseName + ".png");
+    }
+
+    @BeforeMethod(alwaysRun = true)
     public LandingPage launchApplication() throws IOException {
-         initializeDriver();
-         LandingPage landingPage = new LandingPage(driver);
+//        System.out.println("Initializing driver...");
+        initializeDriver();
+//        System.out.println("Driver initialized: " + (driver != null));
+        landingPage = new LandingPage(driver);
+//        System.out.println("Landing page object created");
+
         landingPage.gotoURL();
+//        System.out.println("Navigated to URL");
         return landingPage;
 
 
     }
-    @AfterMethod(alwaysRun = true)
-    public void tearDown(){
-        driver.close();
+
+    @AfterMethod
+    public void tearDown() {
+        driver.quit();
     }
+
     public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException {
         //read json to string
         String jsonContent = readFileToString(new File(filePath), StandardCharsets.UTF_8);
 
         //string to hash map-jackson Data bind
         ObjectMapper mapper = new ObjectMapper();
-        List<HashMap <String,String>> data= mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>() {
+        List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>() {
         });
         return data;
     }

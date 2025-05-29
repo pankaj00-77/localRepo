@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="tests" name="Suite">
+<suite   name="Suite">
+    <listeners>
+        <listener class-name="rahulshettyacademy.TestComponents.Listeners"/>
+    </listeners>
 
-    <test thread-count="1" name="Submit order test">
+    <test thread-count="5" name="Submit order test">
         <classes>
 
-            <class name="rahulshettyacademy.TestComponents.BaseTest"/>
+
 
             <class name="rahulshettyacademy.Tests.SubmitOrderTest"/>
         </classes>
     </test>
-    <test thread-count="1" name="Error Validation Test">
+    <test thread-count="5" name="Error Validation Test">
 <classes>
     <class name="rahulshettyacademy.Tests.ErrorValidation"/>
 </classes>

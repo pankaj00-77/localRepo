@@ -6,23 +6,24 @@ import org.testng.annotations.Test;
 import rahualshettyacademy.objectpage.CartPage;
 import rahualshettyacademy.objectpage.ProductCatalogue;
 import rahulshettyacademy.TestComponents.BaseTest;
+import rahulshettyacademy.TestComponents.Retry;
 
 import java.io.IOException;
 import java.util.List;
 
 class ErrorValidation extends BaseTest {
 
-    @Test(groups = {"ErrorHandling"})
+    @Test(groups = {"ErrorHandling"},retryAnalyzer = Retry.class)
     public void LoginErrorValidation() throws IOException {
         // TODO Auto-generated method stub
 
         String productName = "ZARA COAT 3";
 
 
-         landingPage.loginApplication("rajpal1996kumar@gmail.com","POPpocon22");
+         landingPage.loginApplication("rajpal1996kumar@gmail.com","POPpcon22");
         //        landingPage.loginApplication("rajpal1996kumar@gmail.com","POPpopcon22");
 //        Assert.assertEquals("Incorrect email or password".contains(landingPage.getErrorMessage()));
-        Assert.assertEquals("Incorrect email or password.", landingPage.getErrorMessage());
+        Assert.assertEquals("Incorrect email  password.", landingPage.getErrorMessage());
 
 
 
