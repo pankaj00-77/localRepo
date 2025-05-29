@@ -1,4 +1,4 @@
-package rahulshettyacademy.TestComponents;
+package pankajpak.TestComponents;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import rahualshettyacademy.objectpage.LandingPage;
+import pankajpack.objectpage.LandingPage;
 
 import java.io.File;
 import java.io.FileInputStream;

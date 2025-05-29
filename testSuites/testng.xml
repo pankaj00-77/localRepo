@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite   name="Suite">
     <listeners>
-        <listener class-name="rahulshettyacademy.TestComponents.Listeners"/>
+        <listener class-name="pankajpak.TestComponents.Listeners"/>
     </listeners>
 
     <test thread-count="5" name="Submit order test">
@@ -10,12 +10,12 @@
 
 
 
-            <class name="rahulshettyacademy.Tests.SubmitOrderTest"/>
+            <class name="pankajpak.Tests.SubmitOrderTest"/>
         </classes>
     </test>
     <test thread-count="5" name="Error Validation Test">
 <classes>
-    <class name="rahulshettyacademy.Tests.ErrorValidation"/>
+    <class name="pankajpak.Tests.ErrorValidation"/>
 </classes>
     </test>
 </suite>

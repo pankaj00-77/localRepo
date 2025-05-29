@@ -1,4 +1,4 @@
-package rahualshettyacademy.AbstractComponents;
+package pankajpack.AbstractComponents;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,15 +7,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import rahualshettyacademy.objectpage.CartPage;
-import rahualshettyacademy.objectpage.OrderPage;
+import pankajpack.objectpage.CartPage;
+import pankajpack.objectpage.OrderPage;
 
 import java.time.Duration;
 
 public class AbstractComponent {
     WebDriver driver;
-    public rahualshettyacademy.objectpage.OrderPage OrderPage;
-    public rahualshettyacademy.objectpage.CartPage CartPage;
+    public pankajpack.objectpage.OrderPage OrderPage;
+    public pankajpack.objectpage.CartPage CartPage;
 
     public AbstractComponent(WebDriver driver) {
 

@@ -9,14 +9,14 @@
     <test thread-count="1" name="Submit order test">
         <classes>
 
-            <class name="rahulshettyacademy.TestComponents.BaseTest"/>
+            <class name="pankajpak.TestComponents.BaseTest"/>
 
-            <class name="rahulshettyacademy.Tests.SubmitOrderTest"/>
+            <class name="pankajpak.Tests.SubmitOrderTest"/>
         </classes>
     </test>
     <test thread-count="1" name="Error Validation Test">
 <classes>
-    <class name="rahulshettyacademy.Tests.ErrorValidation"/>
+    <class name="pankajpak.Tests.ErrorValidation"/>
 </classes>
     </test>
 </suite>

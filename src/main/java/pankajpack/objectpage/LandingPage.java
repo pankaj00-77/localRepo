@@ -1,10 +1,10 @@
-package rahualshettyacademy.objectpage;
+package pankajpack.objectpage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import rahualshettyacademy.AbstractComponents.AbstractComponent;
+import pankajpack.AbstractComponents.AbstractComponent;
 
 public class LandingPage extends AbstractComponent {
     WebDriver driver;

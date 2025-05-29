@@ -1,12 +1,12 @@
-package rahulshettyacademy.Tests;
+package pankajpak.Tests;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import rahualshettyacademy.objectpage.CartPage;
-import rahualshettyacademy.objectpage.ProductCatalogue;
-import rahulshettyacademy.TestComponents.BaseTest;
-import rahulshettyacademy.TestComponents.Retry;
+import pankajpack.objectpage.CartPage;
+import pankajpack.objectpage.ProductCatalogue;
+import pankajpak.TestComponents.BaseTest;
+import pankajpak.TestComponents.Retry;
 
 import java.io.IOException;
 import java.util.List;
